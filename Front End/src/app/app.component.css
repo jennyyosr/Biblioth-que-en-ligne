@@ -1,0 +1,128 @@
+
+.intern {  
+    background-color: rgb(240, 240, 240);
+    width:1255px;
+}
+
+.btn-primary,.ajouter {
+    padding: 10px 18px;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-primary:hover, .btn-primary:focus, .ajouter:hover, .ajouter:focus {
+    border: 1px solid #333;
+    background-color: #333;
+    color:  rgb(247, 16, 66);
+   
+}
+ 
+.remove:hover {
+    -webkit-transform: scale(1.1);
+}
+.remove {
+    -webkit-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+}
+
+
+.bg-1 {
+    background: white;
+    color: #333;
+}
+.bg-1 h3 {color: rgb(247, 16, 66);}
+.bg-1 p {font-style: italic;}
+
+.nav-tabs li a {
+    color: #777;
+}
+ 
+
+.navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #333;
+    border: 0;
+    font-size: 20px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+}
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+.navbar-nav li a:hover {
+    color: rgb(247, 16, 66) !important;
+    font-weight:bold;
+}
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+.thumbnail {
+    padding: 0 0 5px 0;
+    border: none;
+    border-radius: 0;
+    
+}
+
+.thumbnail p {
+    margin-top: 15px;
+    color: #555;
+}
+
+
+
+
+.form-control {
+    border-radius: 0;
+}
+
+.codrops-demos{
+    text-align:center;
+	display: block;
+	line-height: 35px;
+	
+}
+.codrops-demos a{
+    display: inline-block;
+	margin: 0px 4px;
+	padding: 0px 4px;
+	color: #fff;
+	line-height: 20px;	
+	font-style: italic;
+	font-size: 15px;
+	border-radius: 3px;
+	background: rgba(41,77,95,0.3);
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.codrops-demos a:hover {
+    background: rgb(247, 16, 66);
+    color: #333
+}
+
+.codrops-demos a:focus{
+    background: rgb(247, 16, 66);
+    color: #333
+
+}
+
+a, u {
+    text-decoration: none;
+}
+
+.zoom {
+
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.5); 
+  }

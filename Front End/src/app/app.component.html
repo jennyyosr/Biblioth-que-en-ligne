@@ -1,0 +1,95 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                     <a class="navbar-brand">Bibliothèque en ligne</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a (click)="showPanier = false">HOME</a></li>
+                    <li><a (click)="showPanier = true">PANIER {{nbrLivre}}</a></li>
+                    <li>
+                        <form class="navbar-form" >
+                            <div class="form-group  ">
+                                <input type="text" class="form-control" name="titre" [(ngModel)]="livre.titre" placeholder="Rechercher Titre">
+                            </div>
+                            <div class="form-group  ">
+                                <input type="text" class="form-control" name="auteur" [(ngModel)]="livre.auteur" placeholder="Rechercher Auteur">
+                            </div>
+                        </form>
+                        
+                    </li>
+                    <li><a (click)="search()"><span class="glyphicon glyphicon-search" ></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>
+
+<br>
+<div class=" text-center">
+    <div class="row">
+        <div class="intern" style="position:absolute; left:50px ;">
+            <div class="btn-group" style="width: 100%;">
+                <button type="button" class="btn btn-primary" (click)="loadAll()" >#</button>
+                <button *ngFor="let alpha of alphabet; "type="button" class="btn btn-primary" (click)="findAllByAlphabet(alpha)">{{alpha}}</button>
+            </div>
+            <div class="row">
+                <div class=" bg-1 col-md-10" *ngIf="!showPanier">
+                    <strong> <h3 class="text-center"> Liste des Livres</h3> </strong>
+                    <div class="row">
+                        <div *ngFor="let livre of livres let i=index" class="thumbnail text-center card" class="col-md-3" >
+                            <br>
+                            <img src='{{livre.image}}' class="zoom" width="150" height="200">
+                            <p><strong>{{livre.titre}}</strong></p>
+                            <p>{{livre.auteur}} <strong> {{livre.prix}} £</strong></p>
+                            <button class="btn ajouter"(click)="addToPanier(livre)">Ajouter au panier</button>
+                            <br>
+                        </div>
+                   </div>
+                </div>
+            <div class=" bg-1 col-md-10" *ngIf="showPanier">
+                <strong> <h3 class="text-center"> Votre panier </h3> </strong>
+                <div class="row">
+                    <div *ngFor="let p of panier let i=index" class="thumbnail text-center card" class="col-md-3">
+                    <br>
+                    <img src='{{p.livre.image}}' width="150" height="200">
+                    <p><strong>{{p.livre.titre}}</strong></p>
+                    <p>{{p.livre.auteur}} <strong> {{p.livre.prix}} £</strong></p>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-warning btn-number"  data-type="minus" data-field="" (click)="decrementQte(i)">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </span>
+                        <p><strong>{{p.qte}}</strong></p>
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" (click)="incrementQte(i)" >
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-danger remove" (click)="removeLivre(i)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span><strong> Delete</strong></span>            
+                    </a>
+                    <br>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-2" *ngIf="!showPanier">
+                    <h4>Parcourir par genre :</h4>
+                        <nav  class="codrops-demos">
+                            <a href="#"  (click)="loadAll()">All</a>
+                            <a href="#" *ngFor="let genre of genres; " (click)="findAllByGenre(genre)">{{genre}} </a>
+                        </nav>
+                </div>
+            <div class="col-md-2" *ngIf="showPanier">
+                    <h4>Total : {{total}} £</h4>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
